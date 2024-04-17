@@ -1,6 +1,5 @@
 import { memo, useEffect } from 'react';
 import { useImpresora } from '../hooks/useImpresora';
-// import { DialogDesviar } from './';
 import { Spinner } from '../ui/components';
 import PropTypes from 'prop-types';
 

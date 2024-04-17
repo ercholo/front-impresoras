@@ -6,8 +6,6 @@ export const PaginaPrincipal = () => {
     const keycloack = useKeycloak();
     const navigate = useNavigate();
 
-    console.log(keycloack)
-
     return (
         <>
             <h2 className='p-2' style={{ textAlign: "center" }}>GESTOR IMPRESORAS HEFAME</h2>
@@ -15,11 +13,8 @@ export const PaginaPrincipal = () => {
 
             <div className='container-sm p-1'>
                 <div className="row justify-content-center">
-
                     <div className="row justify-content-center p-4">
-
                         <div className='col-auto p-2'>
-
                             <button
                                 className='btn btn-warning btn-lg my-2'
                                 onClick={() => navigate("/albacete")}
@@ -46,13 +41,10 @@ export const PaginaPrincipal = () => {
                             >
                                 Barcelona
                             </button>
-
                         </div>
-
                     </div>
 
                     <div className="row justify-content-center p-4">
-
                         <div className='col-auto p-2'>
                             <button
                                 className='btn btn-warning btn-lg my-2'
@@ -85,13 +77,10 @@ export const PaginaPrincipal = () => {
                             >
                                 Madrid
                             </button>
-
                         </div>
-
                     </div>
 
                     <div className="row justify-content-center p-4">
-
                         <div className='col-auto p-2'>
                             <button
                                 className='btn btn-warning btn-lg my-2'
@@ -132,11 +121,8 @@ export const PaginaPrincipal = () => {
                             >
                                 Ribarroja
                             </button>
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </>

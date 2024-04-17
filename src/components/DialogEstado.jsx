@@ -36,9 +36,9 @@ export const DialogEstado = memo(({ data, printer, onClose, isOpen, setAbrirSnac
                     <div className="modal-body">
                         <ul className="list-group">
                             <li className="list-group-item">Estado: {data.estado}</li>
-                            <li className="list-group-item">Desvío: {data.desviada ? 'DESVIADA' : 'Sin desvío'}</li>
+                            <li className="list-group-item">Desvío: {data.desviada ? <strong>DESVIADA</strong> : 'Sin desvío'}</li>
                             <li className="list-group-item">IP actual: {data.ip}</li>
-                            <li className="list-group-item">Impresora desviada: {data.desviada ? data.impresoraDesvio : 'Sin desvío'}</li>
+                            <li className="list-group-item">Impresora desviada: {data.desviada ? <strong>{data.impresoraDesvio}</strong> : 'Sin desvío'}</li>
                         </ul>
                     </div>
                     <div className="modal-footer d-flex ">

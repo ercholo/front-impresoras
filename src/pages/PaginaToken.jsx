@@ -3,7 +3,7 @@ import { useKeycloak } from '@react-keycloak/web'
 export const PaginaToken = () => {
 
     const { keycloak } = useKeycloak();
-    const expTimestamp = keycloak.tokenParsed.exp * 1000; 
+    const expTimestamp = keycloak?.tokenParsed?.exp * 1000; 
     const expirationDate = new Date(expTimestamp);
 
     return (
@@ -12,6 +12,7 @@ export const PaginaToken = () => {
           <h2>Token válido hasta {JSON.stringify(new Date(expTimestamp))}</h2>
           <h3>Token válido hasta {expirationDate.toLocaleTimeString()}</h3>
           <pre> {JSON.stringify(keycloak, null, 2)}</pre>
+          <pre> {JSON.stringify(keycloak?.tokenParsed?.realm_access)}</pre>
         </>
       )
 }

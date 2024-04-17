@@ -2,8 +2,7 @@ import { Link, NavLink, useLocation, useNavigate, useParams } from 'react-router
 import { useKeycloak } from '@react-keycloak/web'
 import { useContext, useEffect, useState } from 'react';
 import { BusquedaContext } from '../../context/context';
-import $ from 'jquery';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export const Navbar = () => {
 
@@ -13,12 +12,8 @@ export const Navbar = () => {
     const [valorInicial, setValorInicial] = useState('');
 
     const location = useLocation();
-
-    console.log(location)
     const navigate = useNavigate();
-
     const params = useParams();
-    console.log(params)
 
     //¿Estás logueado? pa'dentro
     useState(() => {
@@ -28,18 +23,18 @@ export const Navbar = () => {
 
     //pa'fuera
     const onLogOut = () => {
-        keycloak.logout()
+        keycloak.logout();
     }
 
     //Pasamos el término de búsqueda al context para tenerlo de manera global
-    const { setTerminoBusqueda, setBusqueda } = useContext(BusquedaContext);
+    const { setTerminoBusqueda, setBusqueda, setIsGod, isGod, userRoles } = useContext(BusquedaContext);
 
     const onBusqueda = (e) => {
         e.preventDefault();
 
-        if (valorInicial.toUpperCase() === 'ALAV') return null
+        if (valorInicial.toUpperCase() === 'ALAV1' || valorInicial.toUpperCase() === 'ALAV2') return null
 
-        if (valorInicial.length < 8 && valorInicial.includes("172.") ) return null
+        if (valorInicial.length < 8 && valorInicial.includes("172.")) return null
 
         // Por lo menos 4 caracteres en la búsuqeda
         if (valorInicial.length >= 4) {
@@ -56,29 +51,12 @@ export const Navbar = () => {
         }
     };
 
-    useEffect(() => {
-        $('.dropdown-menu').on('click', function () {
-            $("#bs_button").trigger("click");
-        });
-    }, []);
-
     return (
 
         <nav className="navbar bg-body-secondary fixed-top">
             <div className="container-fluid">
 
                 <div className="d-flex ">
-                    {/* <button
-                        className="navbar-toggler small-toggler-icon"
-                        type="button"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbar"
-                        aria-controls="offcanvasNavbar"
-                        aria-label="Toggle navigation"
-                    >
-                        <i className="navbar-toggler-icon"></i>
-                    </button> */}
-
                     <Link className="navbar-brand" to="/">Inicio</Link>
                     <h4 >{location.pathname.substring(1).toUpperCase()}</h4>
                 </div>

@@ -102,6 +102,10 @@ export const impresorasTodas = [
         ip: "172.30.132.219"
     },
     {
+        impresora: "04ALEXP02",
+        ip: "172.30.132.213"
+    },
+    {
         impresora: "04ALJEF02",
         ip: "172.30.132.211"
     },
@@ -226,7 +230,7 @@ export const impresorasTodas = [
     },
     {
         impresora: "15ALJEF02",
-        ip: "172.30.50.248"
+        ip: "172.30.50.242"
     },
     {
         impresora: "15ATTOM01",
@@ -350,6 +354,10 @@ export const impresorasTodas = [
         impresora: "18ATTOM02",
         ip: "172.30.120.244"
     },
+    {
+        impresora: "18ALETQ01",
+        ip: "172.30.120.80"
+    },
 
     {
         impresora: "19ALREC01",
@@ -365,7 +373,7 @@ export const impresorasTodas = [
     },
     {
         impresora: "19ATTOM01",
-        ip: "172.30.91.245"
+        ip: "172.30.91.244"
     },
     {
         impresora: "19ATTOM02",
@@ -374,6 +382,18 @@ export const impresorasTodas = [
     {
         impresora: "19ADCOM01",
         ip: "172.30.91.247"
+    },
+    {
+        impresora: "19ALETQ01",
+        ip: "172.30.91.140"
+    },
+    {
+        impresora: "19ALETQ03",
+        ip: "172.30.91.143"
+    },
+    {
+        impresora: "19ALETQ05",
+        ip: "172.30.91.237"
     },
 
     {
@@ -391,6 +411,10 @@ export const impresorasTodas = [
     {
         impresora: "11ALEST01",
         ip: "172.30.102.239"
+    },
+        {
+        impresora: "11ALJEF01",
+        ip: "172.30.102.234"
     },
     {
         impresora: "11ALEST02",

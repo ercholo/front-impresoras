@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, memo } from 'react';
 import { BotonActualizar, BotonEstado, BotonPausa, BotonReanuda, BotonDesviar } from '.';
 
 //Funcion para crear las futuras filas (rows)
@@ -15,7 +15,7 @@ const impresorasCartagena = [
   createData('03ALAV102', 0, 'RG03','172.30.30.249','I036')
 ]
 
-export const TablaCartagena = React.memo(() => {
+export const TablaCartagena = memo(() => {
 
   const [, setValor] = useState({});
 
@@ -23,8 +23,8 @@ export const TablaCartagena = React.memo(() => {
 
     impresorasCartagena.find(printer => {
       //Si la impresora coincide y los datos son distintos de los que ya teníamos entonces tralarí 
-      if (data?.impresora === printer.nameImpresora) {
-        printer.numTrabajos = data.valor
+      if (data?.impresora === printer?.nameImpresora) {
+        printer.numTrabajos = data?.valor
       }
       setValor(() => data)
     });
@@ -51,14 +51,14 @@ export const TablaCartagena = React.memo(() => {
       <tbody>
         {
           impresorasCartagena.map((impresora) => (
-            <tr key={impresora.nameImpresora}>
-              <td>{impresora.nameImpresora}</td>
-              <td>{impresora.numTrabajos}</td>
-              <td>{<BotonActualizar printer={impresora.nameImpresora} recibirDatos={recibirDatosActualizados} />}</td>
-              <td>{<BotonPausa printer={impresora.nameImpresora} />}</td>
-              <td>{<BotonReanuda printer={impresora.nameImpresora} />}</td>
-              <td>{<BotonEstado printer={impresora.nameImpresora} />}</td>
-              <td>{<BotonDesviar printer={impresora.nameImpresora} />}</td>
+            <tr key={impresora?.nameImpresora}>
+              <td>{impresora?.nameImpresora}</td>
+              <td>{impresora?.numTrabajos}</td>
+              <td>{<BotonActualizar printer={impresora?.nameImpresora} recibirDatos={recibirDatosActualizados} />}</td>
+              <td>{<BotonPausa printer={impresora?.nameImpresora} />}</td>
+              <td>{<BotonReanuda printer={impresora?.nameImpresora} />}</td>
+              <td>{<BotonEstado printer={impresora?.nameImpresora} />}</td>
+              <td>{<BotonDesviar printer={impresora?.nameImpresora} />}</td>
             </tr>
           ))
         }

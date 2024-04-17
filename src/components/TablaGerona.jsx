@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, memo } from 'react';
 import { BotonActualizar, BotonEstado, BotonPausa, BotonReanuda, BotonDesviar } from '.';
 
 //Funcion para crear las futuras filas (rows)
@@ -8,14 +8,14 @@ function createData(nameImpresora, numTrabajos, numAlmacen, ip, nombreCorto) {
 
 //Llamada a la funcion que genera las filas pasándole datos de relleno iniciales
 const impresorasGerona = [
-  createData('12ALAV101', 0, 'RG12','172.30.111.248'),
-  createData('12ALAV102', 0, 'RG12','172.30.111.249'),
-  createData('12ALDEV01', 0, 'RG12','172.30.111.247'),
-  createData('12ALEXP01', 0, 'RG12','172.30.111.246'),
-  createData('12ALJEF01', 0, 'RG12','172.30.111.245')
+  createData('12ALAV101', 0, 'RG12','172.30.111.248','1201'),
+  createData('12ALAV102', 0, 'RG12','172.30.111.249','1202'),
+  createData('12ALDEV01', 0, 'RG12','172.30.111.247','12D1'),
+  createData('12ALEXP01', 0, 'RG12','172.30.111.246','12E1'),
+  createData('12ALJEF01', 0, 'RG12','172.30.111.245','1203')
 ]
 
-export const TablaGerona = React.memo(() => {
+export const TablaGerona = memo(() => {
 
   const [, setValor] = useState({});
 
@@ -23,8 +23,8 @@ export const TablaGerona = React.memo(() => {
 
     impresorasGerona.find(printer => {
       //Si la impresora coincide y los datos son distintos de los que ya teníamos entonces tralarí 
-      if (data?.impresora === printer.nameImpresora) {
-        printer.numTrabajos = data.valor
+      if (data?.impresora === printer?.nameImpresora) {
+        printer.numTrabajos = data?.valor
       }
       setValor(() => data)
     });
@@ -51,14 +51,14 @@ export const TablaGerona = React.memo(() => {
       <tbody>
         {
           impresorasGerona.map((impresora) => (
-            <tr key={impresora.nameImpresora}>
-              <td>{impresora.nameImpresora}</td>
-              <td>{impresora.numTrabajos}</td>
-              <td>{<BotonActualizar printer={impresora.nameImpresora} recibirDatos={recibirDatosActualizados} />}</td>
-              <td>{<BotonPausa printer={impresora.nameImpresora} />}</td>
-              <td>{<BotonReanuda printer={impresora.nameImpresora} />}</td>
-              <td>{<BotonEstado printer={impresora.nameImpresora} />}</td>
-              <td>{<BotonDesviar printer={impresora.nameImpresora} />}</td>
+            <tr key={impresora?.nameImpresora}>
+              <td>{impresora?.nameImpresora}</td>
+              <td>{impresora?.numTrabajos}</td>
+              <td>{<BotonActualizar printer={impresora?.nameImpresora} recibirDatos={recibirDatosActualizados} />}</td>
+              <td>{<BotonPausa printer={impresora?.nameImpresora} />}</td>
+              <td>{<BotonReanuda printer={impresora?.nameImpresora} />}</td>
+              <td>{<BotonEstado printer={impresora?.nameImpresora} />}</td>
+              <td>{<BotonDesviar printer={impresora?.nameImpresora} />}</td>
             </tr>
           ))
         }
