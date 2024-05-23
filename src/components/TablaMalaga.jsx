@@ -15,7 +15,9 @@ const impresorasMalaga = [
   createData('19ATTOM02', 0, 'RG19','172.30.91.248'),
   createData('19ADCOM01', 0, 'RG19','172.30.91.247','I19A'),
   createData('19ALETQ01', 0, 'RG19','172.30.91.140','E191'),
+  createData('19ALETQ02', 0, 'RG19','172.30.91.141','E192'),
   createData('19ALETQ03', 0, 'RG19','172.30.91.143','E193'),
+  createData('19ALETQ04', 0, 'RG19','172.30.91.142','E194'),
   createData('19ALETQ05', 0, 'RG19','172.30.91.237','E195')
 ]
 

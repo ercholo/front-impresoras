@@ -388,8 +388,16 @@ export const impresorasTodas = [
         ip: "172.30.91.140"
     },
     {
+        impresora: "19ALETQ02",
+        ip: "172.30.91.141"
+    },
+    {
         impresora: "19ALETQ03",
         ip: "172.30.91.143"
+    },
+    {
+        impresora: "19ALETQ04",
+        ip: "172.30.91.142"
     },
     {
         impresora: "19ALETQ05",
