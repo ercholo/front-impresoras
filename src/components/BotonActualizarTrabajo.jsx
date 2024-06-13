@@ -11,7 +11,7 @@ export const BotonActualizar = memo(({ printer, recibirDatos }) => {
     const [loading, setLoading] = useState(false);
     const [puedeEjecutar, setPuedeEjecutar] = useState(true);
 
-    const server = printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sapsprint2' : 'sapsprint';
+    const server = printer.startsWith('07') || printer.startsWith('08') ||printer.startsWith('12') || printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sprintpro' : 'sapsprint';
 
     const onActualizar = async () => {
 
