@@ -6,7 +6,7 @@ export const useImpresora = (printer) => {
     const { keycloak } = useKeycloak();
 
     // Si empieza por 16, 17 o 18 entonces el servidor es sapsprint2
-    const server = printer.startsWith('01ALAV') || printer.startsWith('07') || printer.startsWith('08') ||printer.startsWith('12') || printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sprintpro' : 'sapsprint';
+    const server = printer.startsWith('01') || printer.startsWith('07') || printer.startsWith('08') ||printer.startsWith('12') || printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sprintpro' : 'sapsprint';
 
     const initialState = {
         data: null,
