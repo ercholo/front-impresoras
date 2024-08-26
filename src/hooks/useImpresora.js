@@ -5,7 +5,7 @@ export const useImpresora = (printer) => {
 
     const { keycloak } = useKeycloak();
 
-    // Si empieza por 16, 17 o 18 entonces el servidor es sapsprint2
+    // Si empieza por 01, 07, 08, 12, 16, 17 y 18 entonces el servidor es sprintpro
     const server = printer.startsWith('01') || printer.startsWith('07') || printer.startsWith('08') ||printer.startsWith('12') || printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sprintpro' : 'sapsprint';
 
     const initialState = {
@@ -60,17 +60,17 @@ export const useImpresora = (printer) => {
         
     };
 
-    const actualiza = () => fetchData(`https://impresoras.hefame.es/api/${printer}/${server}`);
+    const actualiza = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server);
 
-    const pausa = () => fetchData(`https://impresoras.hefame.es/api/${printer}/${server}/pausa`);
+    const pausa = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/pausa');
 
-    const reanuda = () => fetchData(`https://impresoras.hefame.es/api/${printer}/${server}/reanuda`);
+    const reanuda = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/reanuda');
 
-    const estado = () => fetchData(`https://impresoras.hefame.es/api/${printer}/${server}/estado`);
+    const estado = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/estado');
 
-    const restablece = () => fetchData(`https://impresoras.hefame.es/api/${printer}/${server}/desviarImpresoraOriginal`);
+    const restablece = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/desviarImpresoraOriginal');
 
-    const desviar = (printerDestino) => fetchData(`https://impresoras.hefame.es/api/${printer}/${printerDestino}/${server}/desviar`);
+    const desviar = (printerDestino) => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + printerDestino + '/' + server + '/desviar');
 
     // const actualiza = () => fetchData(`http://172.30.5.181:16665/impresoras/${printer}/${server}`);
 

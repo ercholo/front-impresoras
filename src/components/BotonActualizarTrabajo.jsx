@@ -11,7 +11,7 @@ export const BotonActualizar = memo(({ printer, recibirDatos }) => {
     const [loading, setLoading] = useState(false);
     const [puedeEjecutar, setPuedeEjecutar] = useState(true);
 
-    const server = printer.startsWith('01') || printer.startsWith('07') || printer.startsWith('08') ||printer.startsWith('12') || printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sprintpro' : 'sapsprint';
+    const server = printer.startsWith('01') || printer.startsWith('07') || printer.startsWith('08') || printer.startsWith('12') || printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sprintpro' : 'sapsprint';
 
     const onActualizar = async () => {
 
@@ -20,7 +20,8 @@ export const BotonActualizar = memo(({ printer, recibirDatos }) => {
 
         try {
 
-            const res = await fetch(`https://impresoras.hefame.es/api/${printer}/${server}`, {
+            // const res = await fetch(`https://impresoras.hefame.es/api/${printer}/${server}`, {
+            const res = await fetch(import.meta.env.VITE_URL_FETCH + printer + '/' + server, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${keycloak.token}`
@@ -39,11 +40,11 @@ export const BotonActualizar = memo(({ printer, recibirDatos }) => {
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-            setPuedeEjecutar(true); 
+            setPuedeEjecutar(true);
         }, 5000);
 
         return () => {
-            clearTimeout(timeoutId); 
+            clearTimeout(timeoutId);
         };
     }, [puedeEjecutar]);
 
