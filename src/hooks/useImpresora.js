@@ -4,10 +4,7 @@ import { useKeycloak } from '@react-keycloak/web';
 export const useImpresora = (printer) => {
 
     const { keycloak } = useKeycloak();
-
-    // Si empieza por 01, 07, 08, 12, 16, 17 y 18 entonces el servidor es sprintpro
-    const server = printer.startsWith('01') || printer.startsWith('07') || printer.startsWith('08') ||printer.startsWith('12') || printer.startsWith('16') || printer.startsWith('17') || printer.startsWith('18') ? 'sprintpro' : 'sapsprint';
-
+    const server = 'sprintpro';
     const initialState = {
         data: null,
         isLoading: false,
@@ -38,7 +35,7 @@ export const useImpresora = (printer) => {
             }
 
             const data = await res.json();
-            
+
             setState({
                 data,
                 isLoading: false,
@@ -47,7 +44,7 @@ export const useImpresora = (printer) => {
             });
 
             setAlert(data.ok);
-            
+
         } catch (error) {
             // console.error(error);
             alert.error(error);
@@ -57,7 +54,7 @@ export const useImpresora = (printer) => {
             });
             throw error;
         }
-        
+
     };
 
     const actualiza = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server);
