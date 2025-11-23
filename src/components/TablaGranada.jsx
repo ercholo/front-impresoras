@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState, memo } from 'react';
 import { BotonActualizar, BotonEstado, BotonPausa, BotonReanuda, BotonDesviar } from './';
+import { BotonTrabajosDetallados } from '../ui/components/BotonTrabajosDetallados';
+import { BotonPurgarCola } from '../ui/components/BotonPurgarCola';
+import { BotonPaginaPrueba } from '../ui/components/BotonPaginaPrueba';
 
 //Funcion para crear las futuras filas (rows)
 function createData(nameImpresora, numTrabajos, numAlmacen, ip, nombreCorto) {
@@ -51,6 +54,9 @@ export const TablaGranada = memo(() => {
           <th scope="col">Reanudar</th>
           <th scope="col">Estado</th>
           <th scope="col">Desviar</th>
+          <th scope="col">Ver Trabajos</th>
+          <th scope="col">Purgar</th>
+          <th scope="col">Pág. Prueba</th>
         </tr>
       </thead>
       <tbody>
@@ -63,6 +69,9 @@ export const TablaGranada = memo(() => {
             <td>{<BotonReanuda printer={impresora?.nameImpresora} />}</td>
             <td>{<BotonEstado printer={impresora?.nameImpresora} />}</td>
             <td>{<BotonDesviar printer={impresora?.nameImpresora} />}</td>
+            <td>{<BotonTrabajosDetallados printer={impresora?.nameImpresora} />}</td>
+            <td>{<BotonPurgarCola printer={impresora?.nameImpresora} onPurgar={() => recibirDatosActualizados()} />}</td>
+            <td>{<BotonPaginaPrueba printer={impresora?.nameImpresora} />}</td>
           </tr>
         ))}
       </tbody>

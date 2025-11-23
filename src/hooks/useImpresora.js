@@ -69,6 +69,18 @@ export const useImpresora = (printer) => {
 
     const desviar = (printerDestino) => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + printerDestino + '/' + server + '/desviar');
 
+    const trabajosDetallados = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/trabajosDetallados');
+
+    const cancelarTrabajo = (jobId) => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/' + jobId + '/cancelar');
+
+    const pausarTrabajo = (jobId) => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/' + jobId + '/pausarTrabajo');
+
+    const reanudarTrabajo = (jobId) => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/' + jobId + '/reanudarTrabajo');
+
+    const purgarCola = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/purgarCola');
+
+    const paginaPrueba = () => fetchData(import.meta.env.VITE_URL_FETCH + printer + '/' + server + '/pagPrueba');
+
     // const actualiza = () => fetchData(`http://172.30.5.181:16665/impresoras/${printer}/${server}`);
 
     // const pausa = () => fetchData(`http://172.30.5.181:16665/impresoras/${printer}/${server}/pausa`);
@@ -88,6 +100,12 @@ export const useImpresora = (printer) => {
         estado,
         restablece,
         desviar,
+        trabajosDetallados,
+        cancelarTrabajo,
+        pausarTrabajo,
+        reanudarTrabajo,
+        purgarCola,
+        paginaPrueba,
         data: state.data,
         isLoading: state.isLoading,
         isOk: state.isOk,
