@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState, useContext, memo } from 'react';
 import { BotonActualizar, BotonEstado, BotonPausa, BotonReanuda, BotonDesviar } from '.';
+import { BotonTrabajosDetallados } from '../ui/components/BotonTrabajosDetallados';
+import { BotonPurgarCola } from '../ui/components/BotonPurgarCola';
+import { BotonPaginaPrueba } from '../ui/components/BotonPaginaPrueba';
 import { BusquedaContext } from '../context/context';
 import { useParams } from 'react-router-dom';
 
@@ -173,6 +176,9 @@ export const TablaBusqueda = memo(() => {
                     <th scope="col">Reanudar</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Desviar</th>
+                    <th scope="col">Ver Trabajos</th>
+                    <th scope="col">Purgar</th>
+                    <th scope="col">Pág. Prueba</th>
                 </tr>
             </thead>
             <tbody>
@@ -186,6 +192,9 @@ export const TablaBusqueda = memo(() => {
                             <td>{<BotonReanuda printer={impresora?.nameImpresora} />}</td>
                             <td>{<BotonEstado printer={impresora?.nameImpresora} />}</td>
                             <td>{<BotonDesviar printer={impresora?.nameImpresora} />}</td>
+                            <td>{<BotonTrabajosDetallados printer={impresora?.nameImpresora} />}</td>
+                            <td>{<BotonPurgarCola printer={impresora?.nameImpresora} onPurgar={() => recibirDatosActualizados()} />}</td>
+                            <td>{<BotonPaginaPrueba printer={impresora?.nameImpresora} />}</td>
                         </tr>
                     ))
                 }
