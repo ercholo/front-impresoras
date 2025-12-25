@@ -1,8 +1,14 @@
 import React, { useCallback, useEffect, useState, useContext, memo } from 'react';
-import { BotonActualizar, BotonEstado, BotonPausa, BotonReanuda, BotonDesviar } from '.';
-import { BotonTrabajosDetallados } from '../ui/components/BotonTrabajosDetallados';
-import { BotonPurgarCola } from '../ui/components/BotonPurgarCola';
-import { BotonPaginaPrueba } from '../ui/components/BotonPaginaPrueba';
+import {
+    BotonActualizar,
+    BotonEstado,
+    BotonPausa,
+    BotonReanuda,
+    BotonDesviar,
+    BotonTrabajosDetallados,
+    BotonPurgarCola,
+    BotonPaginaPrueba
+} from '../ui/components';
 import { BusquedaContext } from '../context/context';
 import { useParams } from 'react-router-dom';
 

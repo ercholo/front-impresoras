@@ -1,8 +1,14 @@
 import React, { useCallback, useEffect, useState, memo } from 'react';
-import { BotonActualizar, BotonEstado, BotonPausa, BotonReanuda, BotonDesviar } from '.';
-import { BotonTrabajosDetallados } from '../ui/components/BotonTrabajosDetallados';
-import { BotonPurgarCola } from '../ui/components/BotonPurgarCola';
-import { BotonPaginaPrueba } from '../ui/components/BotonPaginaPrueba';
+import {
+    BotonActualizar,
+    BotonEstado,
+    BotonPausa,
+    BotonReanuda,
+    BotonDesviar,
+    BotonTrabajosDetallados,
+    BotonPurgarCola,
+    BotonPaginaPrueba
+} from '../ui/components';
 
 //Funcion para crear las futuras filas (rows)
 function createData(nameImpresora, numTrabajos, numAlmacen, ip, nombreCorto) {

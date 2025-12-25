@@ -1,7 +1,7 @@
 import { Modal } from "bootstrap";
 import { memo, useEffect } from "react";
 import PropTypes from 'prop-types';
-import BotonRestableceIP from "./BotonRestableceIP";
+import { BotonRestableceIP } from '../ui/components';
 
 
 export const DialogEstado = memo(({ data, printer, onClose, isOpen, setAbrirSnack }) => {

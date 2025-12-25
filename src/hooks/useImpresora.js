@@ -47,7 +47,7 @@ export const useImpresora = (printer) => {
 
         } catch (error) {
             // console.error(error);
-            alert.error(error);
+            console.error(error);
             setState({
                 ...initialState,
                 hasError: error.message,
